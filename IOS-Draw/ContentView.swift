@@ -12,18 +12,21 @@ struct ContentView: View {
     
     var body: some View {
         //Path(CGRect(x:10,y:10,width:100,height: 100)).fill(Color.blue)
-      
+        
         ZStack
             {
-                 HalfSpiderView(posX:(UIScreen.main.bounds.width/2)-100,posY:-100,color: Color(red:194/255, green:194/255, blue:214/255))
+                Text("SPIDER").frame(width: 400).offset(y:330)
+                    .font(.custom("Noteworthy-Light",size:120))
+                 HalfSpiderView(posX:(UIScreen.main.bounds.width/2)-100,posY:-100,color: Color(red:194/255, green:194/255, blue:214/255)).opacity(0.3)
                 HalfSpiderView(posX:(UIScreen.main.bounds.width/2)-300,posY:-100,color: Color(red:194/255, green:194/255, blue:214/255))
-                    .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
+                    .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0)).opacity(0.3)
                 
                 HalfSpiderView(posX:(UIScreen.main.bounds.width/2)-200,posY:0)
                 HalfSpiderView(posX:(UIScreen.main.bounds.width/2)-200,posY:0)
                 .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
-        }
-        
+        }.scaleEffect(0.5)
+            .offset(y:150)
+            .background(Image("bg").resizable().opacity(0.9),alignment: .topLeading)
     }
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
